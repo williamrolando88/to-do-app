@@ -41,6 +41,10 @@ const TodoContainer = () => {
   };
 
   const handleAddItem = (title) => {
+    if (!title) {
+      alert('Please add a title!');
+      return;
+    }
     const newTodos = [
       ...todos,
       {
