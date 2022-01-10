@@ -1,21 +1,23 @@
 import React, { useState } from 'react';
+import { v4 as uuid } from 'uuid';
 import Header from './Header';
+import InputTodo from './InputTodo';
 import TodosList from './TodosList';
 
 const TodoContainer = () => {
   const todo = [
     {
-      id: 1,
+      id: uuid(),
       title: 'Setup development environment',
       completed: true,
     },
     {
-      id: 2,
+      id: uuid(),
       title: 'Develop website and add content',
       completed: false,
     },
     {
-      id: 3,
+      id: uuid(),
       title: 'Deploy to live server',
       completed: false,
     },
@@ -38,9 +40,22 @@ const TodoContainer = () => {
     setTodos(todos.filter((todo) => todo.id !== id));
   };
 
+  const handleAddItem = (title) => {
+    const newTodos = [
+      ...todos,
+      {
+        id: uuid(),
+        title,
+        completed: false,
+      },
+    ];
+    setTodos(newTodos);
+  };
+
   return (
     <div>
       <Header />
+      <InputTodo onAddItem={handleAddItem} />
       <TodosList
         todos={todos}
         onDeleteTodo={handleDeleteTodo}
