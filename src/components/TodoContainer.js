@@ -29,6 +29,11 @@ const TodoContainer = () => {
     fetch('https://jsonplaceholder.typicode.com/todos?_limit=10')
       .then((response) => response.json())
       .then((data) => setTodos([...data]));
+
+    const loadedTodos = JSON.parse(localStorage.getItem('todos'));
+    if (loadedTodos) {
+      setTodos([...loadedTodos]);
+    }
     return () => {};
   }, []);
 
