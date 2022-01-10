@@ -7,6 +7,7 @@ const TodoItem = (props) => {
     todo: { id, completed, title },
     onStatusChange,
     onDeleteTodo,
+    onUpdateItem,
   } = props;
 
   const completedStyle = {
@@ -43,7 +44,13 @@ const TodoItem = (props) => {
         <button onClick={() => onDeleteTodo(id)}>Delete</button>
       </div>
 
-      <input style={editMode} type='text' className={styles.textInput} />
+      <input
+        style={editMode}
+        type='text'
+        className={styles.textInput}
+        value={title}
+        onChange={onUpdateItem}
+      />
     </li>
   );
 };
