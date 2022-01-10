@@ -2,7 +2,7 @@ import React from 'react';
 import TodoItem from './TodoItem';
 
 const TodosList = (props) => {
-  const { todos, onStatusChange, onDeleteTodo } = props;
+  const { todos, onStatusChange, onDeleteTodo, onUpdateItem } = props;
   return (
     <ul>
       {todos.map((todo) => (
@@ -11,6 +11,7 @@ const TodosList = (props) => {
           todo={todo}
           onDeleteTodo={onDeleteTodo}
           onStatusChange={onStatusChange}
+          onUpdateItem={onUpdateItem}
         />
       ))}
     </ul>

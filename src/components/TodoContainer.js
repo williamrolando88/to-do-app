@@ -56,6 +56,19 @@ const TodoContainer = () => {
     setTodos(newTodos);
   };
 
+  const handleUpdateItem = (updatedTitle, id) => {
+    console.log(updatedTitle);
+    setTodos(
+      todos.map((todo) => {
+        if (todo.id === id) {
+          todo.title = updatedTitle;
+        }
+        console.log(todo);
+        return todo;
+      }),
+    );
+  };
+
   return (
     <div className='container'>
       <div className='inner'>
@@ -65,6 +78,7 @@ const TodoContainer = () => {
           todos={todos}
           onDeleteTodo={handleDeleteTodo}
           onStatusChange={handleStatusChange}
+          onUpdateItem={handleUpdateItem}
         />
       </div>
     </div>
