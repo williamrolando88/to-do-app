@@ -57,14 +57,16 @@ const TodoContainer = () => {
   };
 
   return (
-    <div>
-      <Header />
-      <InputTodo onAddItem={handleAddItem} />
-      <TodosList
-        todos={todos}
-        onDeleteTodo={handleDeleteTodo}
-        onStatusChange={handleStatusChange}
-      />
+    <div className='container'>
+      <div className='inner'>
+        <Header />
+        <InputTodo onAddItem={handleAddItem} />
+        <TodosList
+          todos={todos}
+          onDeleteTodo={handleDeleteTodo}
+          onStatusChange={handleStatusChange}
+        />
+      </div>
     </div>
   );
 };

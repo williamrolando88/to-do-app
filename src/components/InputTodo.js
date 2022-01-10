@@ -10,14 +10,17 @@ const InputTodo = (props) => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form className='form-container' onSubmit={handleSubmit}>
       <input
+        className='input-text'
         type='text'
         placeholder='Add To Do...'
         value={title}
         onChange={(e) => setTitle(e.target.value)}
       />
-      <button type='submit'>Submit</button>
+      <button className='input-submit' type='submit'>
+        Submit
+      </button>
     </form>
   );
 };
