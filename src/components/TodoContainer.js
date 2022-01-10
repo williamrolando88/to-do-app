@@ -57,7 +57,16 @@ const TodoContainer = () => {
   };
 
   const handleUpdateItem = (updatedTitle, id) => {
-    console.log(updatedTitle, id);
+    console.log(updatedTitle);
+    setTodos(
+      todos.map((todo) => {
+        if (todo.id === id) {
+          todo.title = updatedTitle;
+        }
+        console.log(todo);
+        return todo;
+      }),
+    );
   };
 
   return (

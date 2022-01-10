@@ -21,6 +21,12 @@ const TodoItem = (props) => {
     setEditing(true);
   };
 
+  const onFinishEdit = (event) => {
+    if (event.key === 'Enter') {
+      setEditing(false);
+    }
+  };
+
   let viewMode = {};
   let editMode = {};
 
@@ -49,7 +55,8 @@ const TodoItem = (props) => {
         type='text'
         className={styles.textInput}
         value={title}
-        onChange={onUpdateItem}
+        onChange={(e) => onUpdateItem(e.target.value, id)}
+        onKeyDown={onFinishEdit}
       />
     </li>
   );
