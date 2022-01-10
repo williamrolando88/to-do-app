@@ -32,6 +32,11 @@ const TodoContainer = () => {
     return () => {};
   }, []);
 
+  useEffect(() => {
+    localStorage.setItem('todos', JSON.stringify(todos));
+    return () => {};
+  }, [todos]);
+
   const handleStatusChange = (id) => {
     setTodos(
       todos.map((todo) => {
