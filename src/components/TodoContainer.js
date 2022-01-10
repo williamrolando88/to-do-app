@@ -26,9 +26,9 @@ const TodoContainer = () => {
   const [todos, setTodos] = useState(todo);
 
   useEffect(() => {
-    fetch('https://jsonplaceholder.typicode.com/todos?_limit=10')
-      .then((response) => response.json())
-      .then((data) => setTodos([...data]));
+    // fetch('https://jsonplaceholder.typicode.com/todos?_limit=10')
+    //   .then((response) => response.json())
+    //   .then((data) => setTodos([...data]));
 
     const loadedTodos = JSON.parse(localStorage.getItem('todos'));
     if (loadedTodos) {
