@@ -1,7 +1,7 @@
 import React from 'react';
 
 const TodoItem = (props) => {
-  const { todo, onStatusChange } = props;
+  const { todo, onStatusChange, onDeleteTodo } = props;
   return (
     <li>
       <input
@@ -11,6 +11,7 @@ const TodoItem = (props) => {
         onChange={() => onStatusChange(todo.id)}
       />
       {todo.title}
+      <button onClick={() => onDeleteTodo(todo.id)}>Delete</button>
     </li>
   );
 };

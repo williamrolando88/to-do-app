@@ -24,15 +24,28 @@ const TodoContainer = () => {
   const [todos, setTodos] = useState(todo);
 
   const handleStatusChange = (id) => {
-    const nextTodos = todos;
-    console.log(nextTodos.indexOf(id));
-    // setTodos()
+    setTodos(
+      todos.map((todo) => {
+        if (todo.id === id) {
+          todo.completed = !todo.completed;
+        }
+        return todo;
+      }),
+    );
+  };
+
+  const handleDeleteTodo = (id) => {
+    setTodos(todos.filter((todo) => todo.id !== id));
   };
 
   return (
     <div>
       <Header />
-      <TodosList todos={todos} onStatusChange={handleStatusChange} />
+      <TodosList
+        todos={todos}
+        onDeleteTodo={handleDeleteTodo}
+        onStatusChange={handleStatusChange}
+      />
     </div>
   );
 };
