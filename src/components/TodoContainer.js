@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { v4 as uuid } from 'uuid';
 import Header from './Header';
 import InputTodo from './InputTodo';
@@ -24,6 +24,13 @@ const TodoContainer = () => {
   ];
 
   const [todos, setTodos] = useState(todo);
+
+  useEffect(() => {
+    fetch('https://jsonplaceholder.typicode.com/todos?_limit=10')
+      .then((response) => response.json())
+      .then((data) => setTodos([...data]));
+    return () => {};
+  }, []);
 
   const handleStatusChange = (id) => {
     setTodos(
