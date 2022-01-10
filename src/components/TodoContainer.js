@@ -1,29 +1,28 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { v4 as uuid } from 'uuid';
 import Header from './Header';
 import InputTodo from './InputTodo';
 import TodosList from './TodosList';
 
 const TodoContainer = () => {
-  const todo = [
-    {
-      id: uuid(),
-      title: 'Setup development environment',
-      completed: true,
-    },
-    {
-      id: uuid(),
-      title: 'Develop website and add content',
-      completed: false,
-    },
-    {
-      id: uuid(),
-      title: 'Deploy to live server',
-      completed: false,
-    },
-  ];
+  const [todos, setTodos] = useState([]);
 
-  const [todos, setTodos] = useState(todo);
+  useEffect(() => {
+    const loadedTodos = JSON.parse(localStorage.getItem('todos'));
+    if (loadedTodos.length > 0) {
+      setTodos([...loadedTodos]);
+    } else {
+      fetch('https://jsonplaceholder.typicode.com/todos?_limit=10')
+        .then((response) => response.json())
+        .then((data) => setTodos([...data]));
+    }
+    return () => {};
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem('todos', JSON.stringify(todos));
+    return () => {};
+  }, [todos]);
 
   const handleStatusChange = (id) => {
     setTodos(
