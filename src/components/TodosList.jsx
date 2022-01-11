@@ -2,9 +2,7 @@ import React from 'react';
 import TodoItem from './TodoItem';
 
 const TodosList = (props) => {
-  const {
-    todos, onStatusChange, onDeleteTodo, onUpdateItem,
-  } = props;
+  const { todos, onStatusChange, onDeleteTodo, onUpdateItem } = props;
   return (
     <ul>
       {todos.map((todo) => (

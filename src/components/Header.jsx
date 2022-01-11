@@ -16,8 +16,7 @@ const Header = () => {
           color: '#ececec',
           textTransform: 'lowercase',
           textAlign: 'center',
-        }}
-      >
+        }}>
         TODO
       </h1>
     </header>
