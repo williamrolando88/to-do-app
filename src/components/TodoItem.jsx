@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import styles from './TodoItem.module.css';
 import { FaTrash } from 'react-icons/fa';
+import styles from './TodoItem.module.css';
 
 const TodoItem = (props) => {
   const [editing, setEditing] = useState(false);
