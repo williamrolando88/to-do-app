@@ -27,8 +27,8 @@ const TodoItem = (props) => {
     }
   };
 
-  let viewMode = {};
-  let editMode = {};
+  const viewMode = {};
+  const editMode = {};
 
   if (editing) {
     viewMode.display = 'none';
@@ -40,19 +40,21 @@ const TodoItem = (props) => {
     <li className={styles.item}>
       <div style={viewMode} onDoubleClick={onEditItem}>
         <input
-          type='checkbox'
+          type="checkbox"
           className={styles.checkbox}
           name={id}
           checked={completed}
           onChange={() => onStatusChange(id)}
         />
         <span style={completed ? completedStyle : null}>{title}</span>
-        <button onClick={() => onDeleteTodo(id)}>Delete</button>
+        <button type="button" onClick={() => onDeleteTodo(id)}>
+          Delete
+        </button>
       </div>
 
       <input
         style={editMode}
-        type='text'
+        type="text"
         className={styles.textInput}
         value={title}
         onChange={(e) => onUpdateItem(e.target.value, id)}

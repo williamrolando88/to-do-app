@@ -56,21 +56,19 @@ const TodoContainer = () => {
   };
 
   const handleUpdateItem = (updatedTitle, id) => {
-    console.log(updatedTitle);
     setTodos(
       todos.map((todo) => {
         if (todo.id === id) {
           todo.title = updatedTitle;
         }
-        console.log(todo);
         return todo;
       }),
     );
   };
 
   return (
-    <div className='container'>
-      <div className='inner'>
+    <div className="container">
+      <div className="inner">
         <Header />
         <InputTodo onAddItem={handleAddItem} />
         <TodosList
